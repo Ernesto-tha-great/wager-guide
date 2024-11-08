@@ -10,7 +10,6 @@ import { EvmPriceServiceConnection } from "@pythnetwork/pyth-evm-js";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
   useWaitForTransactionReceipt,
@@ -38,9 +37,6 @@ interface BetInfo {
 }
 
 export default function Home() {
-  const { address, isConnected } = useAccount();
-  const { disconnect } = useDisconnect();
-
   const formSchema = z.object({
     title: z.string(),
     threshold: z.string(),
@@ -186,10 +182,12 @@ export default function Home() {
       >
         <div className="mt-24">
           <div className="flex flex-col items-center justify-center text-[#14A800]">
-            <h3 className="text-xl md:text-2xl font-semibold">
+            <h3 className="text-sm sm:text-xl md:text-2xl font-semibold">
               CREATE A NEW BET
             </h3>
-            <h1 className="text-5xl md:text-7xl font-bold">ETH BETTING DAPP</h1>
+            <h1 className=" text-4xl sm:text-5xl md:text-7xl font-bold">
+              ETH BETTING DAPP
+            </h1>
 
             <Image
               className="-mt-14"
@@ -205,7 +203,7 @@ export default function Home() {
                 onSubmit={form.handleSubmit(createBet)}
                 className="space-y-8"
               >
-                <div className="flex flex-row items-center justify-between gap-6">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                   <FormField
                     control={form.control}
                     name="title"
