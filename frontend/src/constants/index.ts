@@ -1,5 +1,5 @@
-import { priceConsumerAbi } from "./abi";
+import { wagerAbi } from "./abi";
 
-const priceConsumerAddress = "0x19e575c563984e7945ae89223849faEc09116300";
+const wagerAddress = "0x6B1017E0Ed3C00aB209f6a79528D2868805052CC";
 
-export { priceConsumerAbi, priceConsumerAddress };
+export { wagerAbi, wagerAddress };

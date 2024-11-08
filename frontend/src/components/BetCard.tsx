@@ -18,14 +18,18 @@ interface BetProps {
 
 const BetCard: React.FC<BetProps> = ({ bet, onPlaceBet, onEndEpoch }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg  backdrop-blur-md mt-8">
+    <div className="flex flex-col bg-white p-6 rounded-lg shadow-lg  backdrop-blur-md mt-8">
       <div className="">
         <h3 className="text-xl font-bold text-black mb-2">{bet.title}</h3>
         <div className="text-gray-500 font-semibold mb-2">
           <p className="">ID: {bet.id.toString()}</p>
-          <p className="">Threshold: ETH</p>
-          <p className="">Pool for Exceed: ETH</p>
-          <p className="">Pool for Not Exceed: ETH</p>
+          <p className="">Threshold: {formatEther(bet.threshold)} ETH</p>
+          <p className="">
+            Pool for Exceed: {formatEther(bet.totalPoolForExceed)} ETH
+          </p>
+          <p className="">
+            Pool for Not Exceed: {formatEther(bet.totalPoolForNotExceed)} ETH
+          </p>
         </div>
         <p
           className={`text-sm font-semibold ${
@@ -52,7 +56,6 @@ const BetCard: React.FC<BetProps> = ({ bet, onPlaceBet, onEndEpoch }) => {
 
         <Button
           onClick={() => onEndEpoch(Number(bet.id.toString()))}
-          size="lg"
           className="bg-[#14A800]/50 text-white rounded-full hover:bg-[#14A800]/80"
         >
           End Epoch
