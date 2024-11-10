@@ -270,9 +270,9 @@ export default function Home() {
           All Bets
         </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 md:px-12">
+        <div className=" px-4 md:px-12">
           {allBets ? (
-            <div className="">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {allBets.map((bet) => (
                 <BetCard
                   bet={bet}
