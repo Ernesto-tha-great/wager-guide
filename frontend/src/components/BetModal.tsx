@@ -32,7 +32,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { MoveLeft } from "lucide-react";
+import { XIcon } from "lucide-react";
 
 interface BetModalProps {
   children: React.ReactNode;
@@ -69,11 +69,11 @@ const PlaceBetModal = ({ children, onPlaceBet, betId }: BetModalProps) => {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            <div className="flex items-center gap-6 justify-center">
+            <div className="flex items-center justify-between">
+              <h1 className="text-xl font-semibold">Make a bet</h1>
               <AlertDialogCancel className="border-none">
-                <MoveLeft size={24} />
+                <XIcon size={30} />
               </AlertDialogCancel>
-              <h1>Make a bet</h1>
             </div>
           </AlertDialogTitle>
         </AlertDialogHeader>
@@ -81,7 +81,7 @@ const PlaceBetModal = ({ children, onPlaceBet, betId }: BetModalProps) => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(handleSubmit)}
-              className="space-y-8"
+              className="space-y-8 mt-3"
             >
               <FormField
                 control={form.control}
@@ -93,7 +93,7 @@ const PlaceBetModal = ({ children, onPlaceBet, betId }: BetModalProps) => {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="rounded-full"
+                        className="rounded-lg border-none bg-[#14A800]/10 focus:outline-none"
                         placeholder="Bet amount (ETH)"
                         {...field}
                       />
@@ -117,7 +117,7 @@ const PlaceBetModal = ({ children, onPlaceBet, betId }: BetModalProps) => {
                       }
                     >
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="border-none bg-[#14A800]/10 focus:outline-none">
                           <SelectValue placeholder="will exceed" />
                         </SelectTrigger>
                       </FormControl>
@@ -130,20 +130,27 @@ const PlaceBetModal = ({ children, onPlaceBet, betId }: BetModalProps) => {
                   </FormItem>
                 )}
               />
+              <div className="flex items-center justify-center gap-6">
+                <Button
+                  className="bg-[#14A800]/10 w-fit my-8 text-black rounded-full"
+                  size="lg"
+                  type="submit"
+                >
+                  Cancel
+                </Button>
 
-              <Button
-                className="bg-[#007A86] self-center my-8 rounded-full w-full"
-                size="lg"
-                type="submit"
-              >
-                Submit
-              </Button>
+                <Button
+                  className="bg-[#14A800] w-fit my-8 rounded-full"
+                  size="lg"
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </div>
             </form>
           </Form>
         </div>
-        <AlertDialogFooter className="mt-4">
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-        </AlertDialogFooter>
+        <AlertDialogFooter className="mt-4"></AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   );

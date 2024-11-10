@@ -1,5 +1,6 @@
 import { formatEther } from "viem";
 import { Button } from "./ui/button";
+import PlaceBetModal from "./BetModal";
 // import PlaceBetModal from "./BetModal";
 
 interface BetProps {
@@ -41,18 +42,18 @@ const BetCard: React.FC<BetProps> = ({ bet, onPlaceBet, onEndEpoch }) => {
       </div>
 
       <div className="mt-4 flex space-x-4">
-        {/* <PlaceBetModal
+        <PlaceBetModal
           betId={Number(bet.id.toString())}
           onPlaceBet={onPlaceBet}
-        > */}
-        <Button
-          onClick={() => {}}
-          size="lg"
-          className="bg-[#14A800] text-white rounded-full hover:bg-[#14A800]/80"
         >
-          Place Bet
-        </Button>
-        {/* </PlaceBetModal> */}
+          <Button
+            onClick={() => {}}
+            size="lg"
+            className="bg-[#14A800] text-white rounded-full hover:bg-[#14A800]/80"
+          >
+            Place Bet
+          </Button>
+        </PlaceBetModal>
 
         <Button
           onClick={() => onEndEpoch(Number(bet.id.toString()))}
